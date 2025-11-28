@@ -54,7 +54,7 @@ const Features = () => {
           SolAnarch Features
         </h1>
         <p className="text-gray-600 text-lg">
-          Solana's first Layer 2 chain combining infinite scalability with
+          Solana&apos;s first Layer 2 chain combining infinite scalability with
           multi-chain compatibility.
         </p>
       </motion.div>

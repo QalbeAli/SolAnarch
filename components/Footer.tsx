@@ -39,7 +39,7 @@ const Footer = () => {
               <span className="text-2xl font-bold text-white">SOLANARCH</span>
             </div>
             <p className="text-gray-400 text-sm">
-              Solana's first Layer 2 chain with infinite scalability and multi-chain compatibility.
+              Solana&apos;s first Layer 2 chain with infinite scalability and multi-chain compatibility.
             </p>
           </div>
 

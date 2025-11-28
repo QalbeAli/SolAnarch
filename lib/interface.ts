@@ -1,12 +1,12 @@
-import * as anchor from "@coral-xyz/anchor";
 import { BN } from "@coral-xyz/anchor";
 import { PublicKey } from "@solana/web3.js";
 
 // Update PhaseStatus to match contract structure
+// Use empty-object records instead of `{}` to satisfy lint rules
 export interface PhaseStatus {
-  active?: {};
-  ended?: {};
-  upcoming?: {};
+  active?: Record<string, never>;
+  ended?: Record<string, never>;
+  upcoming?: Record<string, never>;
 }
 
 export interface Phase {
