@@ -1,0 +1,1227 @@
+{
+    "address": "88uaiF6Lqq3id6idy6zMv8Pfc4sXb3gvQNLCMWWQHHCL",
+    "metadata": {
+        "name": "zexxcoin_presale",
+        "version": "0.1.0",
+        "spec": "0.1.0",
+        "description": "Created with Anchor"
+    },
+    "instructions": [
+        {
+            "name": "buy_token",
+            "discriminator": [
+                138,
+                127,
+                14,
+                91,
+                38,
+                87,
+                115,
+                105
+            ],
+            "accounts": [
+                {
+                    "name": "presale_info",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    112,
+                                    114,
+                                    101,
+                                    115,
+                                    97,
+                                    108,
+                                    101
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "presale_info.authority",
+                                "account": "PresaleInfo"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "user_info",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    117,
+                                    115,
+                                    101,
+                                    114
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "presale_info"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "buyer"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "presale_vault",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    118,
+                                    97,
+                                    117,
+                                    108,
+                                    116
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "buyer",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "buyer_token_account",
+                    "writable": true
+                },
+                {
+                    "name": "presale_token_account",
+                    "writable": true
+                },
+                {
+                    "name": "rent",
+                    "address": "SysvarRent111111111111111111111111111111111"
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                },
+                {
+                    "name": "token_program",
+                    "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+                },
+                {
+                    "name": "associated_token_program",
+                    "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+                }
+            ],
+            "args": [
+                {
+                    "name": "amount",
+                    "type": "u64"
+                }
+            ]
+        },
+        {
+            "name": "claim_token",
+            "discriminator": [
+                116,
+                206,
+                27,
+                191,
+                166,
+                19,
+                0,
+                73
+            ],
+            "accounts": [
+                {
+                    "name": "token_mint",
+                    "writable": true
+                },
+                {
+                    "name": "token_account",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "buyer"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    6,
+                                    221,
+                                    246,
+                                    225,
+                                    215,
+                                    101,
+                                    161,
+                                    147,
+                                    217,
+                                    203,
+                                    225,
+                                    70,
+                                    206,
+                                    235,
+                                    121,
+                                    172,
+                                    28,
+                                    180,
+                                    133,
+                                    237,
+                                    95,
+                                    91,
+                                    55,
+                                    145,
+                                    58,
+                                    140,
+                                    245,
+                                    133,
+                                    126,
+                                    255,
+                                    0,
+                                    169
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140,
+                                151,
+                                37,
+                                143,
+                                78,
+                                36,
+                                137,
+                                241,
+                                187,
+                                61,
+                                16,
+                                41,
+                                20,
+                                142,
+                                13,
+                                131,
+                                11,
+                                90,
+                                19,
+                                153,
+                                218,
+                                255,
+                                16,
+                                132,
+                                4,
+                                142,
+                                123,
+                                216,
+                                219,
+                                233,
+                                248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "presale_associated_token_account",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "presale_info"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    6,
+                                    221,
+                                    246,
+                                    225,
+                                    215,
+                                    101,
+                                    161,
+                                    147,
+                                    217,
+                                    203,
+                                    225,
+                                    70,
+                                    206,
+                                    235,
+                                    121,
+                                    172,
+                                    28,
+                                    180,
+                                    133,
+                                    237,
+                                    95,
+                                    91,
+                                    55,
+                                    145,
+                                    58,
+                                    140,
+                                    245,
+                                    133,
+                                    126,
+                                    255,
+                                    0,
+                                    169
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "token_mint"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140,
+                                151,
+                                37,
+                                143,
+                                78,
+                                36,
+                                137,
+                                241,
+                                187,
+                                61,
+                                16,
+                                41,
+                                20,
+                                142,
+                                13,
+                                131,
+                                11,
+                                90,
+                                19,
+                                153,
+                                218,
+                                255,
+                                16,
+                                132,
+                                4,
+                                142,
+                                123,
+                                216,
+                                219,
+                                233,
+                                248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "user_info",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    117,
+                                    115,
+                                    101,
+                                    114
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "presale_info"
+                            },
+                            {
+                                "kind": "account",
+                                "path": "buyer"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "presale_info",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    112,
+                                    114,
+                                    101,
+                                    115,
+                                    97,
+                                    108,
+                                    101
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "presale_info.authority",
+                                "account": "PresaleInfo"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "buyer",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "rent",
+                    "address": "SysvarRent111111111111111111111111111111111"
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                },
+                {
+                    "name": "token_program",
+                    "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+                },
+                {
+                    "name": "associated_token_program",
+                    "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+                }
+            ],
+            "args": [
+                {
+                    "name": "phase_to_claim",
+                    "type": "u8"
+                }
+            ]
+        },
+        {
+            "name": "create_presale",
+            "discriminator": [
+                176,
+                144,
+                197,
+                158,
+                61,
+                119,
+                75,
+                135
+            ],
+            "accounts": [
+                {
+                    "name": "presale_info",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    112,
+                                    114,
+                                    101,
+                                    115,
+                                    97,
+                                    108,
+                                    101
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "authority"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "authority",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                }
+            ],
+            "args": [
+                {
+                    "name": "token_mint_address",
+                    "type": "pubkey"
+                },
+                {
+                    "name": "max_token_amount_per_address",
+                    "type": "u64"
+                },
+                {
+                    "name": "display_end_time",
+                    "type": "i64"
+                }
+            ]
+        },
+        {
+            "name": "deposit_token",
+            "discriminator": [
+                11,
+                156,
+                96,
+                218,
+                39,
+                163,
+                180,
+                19
+            ],
+            "accounts": [
+                {
+                    "name": "mint_account",
+                    "writable": true
+                },
+                {
+                    "name": "token_account",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "admin"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    6,
+                                    221,
+                                    246,
+                                    225,
+                                    215,
+                                    101,
+                                    161,
+                                    147,
+                                    217,
+                                    203,
+                                    225,
+                                    70,
+                                    206,
+                                    235,
+                                    121,
+                                    172,
+                                    28,
+                                    180,
+                                    133,
+                                    237,
+                                    95,
+                                    91,
+                                    55,
+                                    145,
+                                    58,
+                                    140,
+                                    245,
+                                    133,
+                                    126,
+                                    255,
+                                    0,
+                                    169
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "mint_account"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140,
+                                151,
+                                37,
+                                143,
+                                78,
+                                36,
+                                137,
+                                241,
+                                187,
+                                61,
+                                16,
+                                41,
+                                20,
+                                142,
+                                13,
+                                131,
+                                11,
+                                90,
+                                19,
+                                153,
+                                218,
+                                255,
+                                16,
+                                132,
+                                4,
+                                142,
+                                123,
+                                216,
+                                219,
+                                233,
+                                248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "admin",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "to_associated_token_account",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "account",
+                                "path": "presale_info"
+                            },
+                            {
+                                "kind": "const",
+                                "value": [
+                                    6,
+                                    221,
+                                    246,
+                                    225,
+                                    215,
+                                    101,
+                                    161,
+                                    147,
+                                    217,
+                                    203,
+                                    225,
+                                    70,
+                                    206,
+                                    235,
+                                    121,
+                                    172,
+                                    28,
+                                    180,
+                                    133,
+                                    237,
+                                    95,
+                                    91,
+                                    55,
+                                    145,
+                                    58,
+                                    140,
+                                    245,
+                                    133,
+                                    126,
+                                    255,
+                                    0,
+                                    169
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "mint_account"
+                            }
+                        ],
+                        "program": {
+                            "kind": "const",
+                            "value": [
+                                140,
+                                151,
+                                37,
+                                143,
+                                78,
+                                36,
+                                137,
+                                241,
+                                187,
+                                61,
+                                16,
+                                41,
+                                20,
+                                142,
+                                13,
+                                131,
+                                11,
+                                90,
+                                19,
+                                153,
+                                218,
+                                255,
+                                16,
+                                132,
+                                4,
+                                142,
+                                123,
+                                216,
+                                219,
+                                233,
+                                248,
+                                89
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "presale_vault",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    118,
+                                    97,
+                                    117,
+                                    108,
+                                    116
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "presale_info",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    112,
+                                    114,
+                                    101,
+                                    115,
+                                    97,
+                                    108,
+                                    101
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "presale_info.authority",
+                                "account": "PresaleInfo"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "rent",
+                    "address": "SysvarRent111111111111111111111111111111111"
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                },
+                {
+                    "name": "token_program",
+                    "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+                },
+                {
+                    "name": "associated_token_program",
+                    "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+                }
+            ],
+            "args": [
+                {
+                    "name": "amount",
+                    "type": "u64"
+                }
+            ]
+        },
+        {
+            "name": "emergency_stop",
+            "discriminator": [
+                179,
+                143,
+                200,
+                137,
+                108,
+                245,
+                248,
+                35
+            ],
+            "accounts": [
+                {
+                    "name": "presale_info",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    112,
+                                    114,
+                                    101,
+                                    115,
+                                    97,
+                                    108,
+                                    101
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "presale_info.authority",
+                                "account": "PresaleInfo"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "authority",
+                    "signer": true
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "resume_presale",
+            "discriminator": [
+                34,
+                45,
+                30,
+                147,
+                226,
+                254,
+                42,
+                152
+            ],
+            "accounts": [
+                {
+                    "name": "presale_info",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    112,
+                                    114,
+                                    101,
+                                    115,
+                                    97,
+                                    108,
+                                    101
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "presale_info.authority",
+                                "account": "PresaleInfo"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "authority",
+                    "signer": true
+                }
+            ],
+            "args": [
+                {
+                    "name": "display_end_time",
+                    "type": "i64"
+                }
+            ]
+        },
+        {
+            "name": "withdraw_sol",
+            "discriminator": [
+                145,
+                131,
+                74,
+                136,
+                65,
+                137,
+                42,
+                38
+            ],
+            "accounts": [
+                {
+                    "name": "presale_info",
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    112,
+                                    114,
+                                    101,
+                                    115,
+                                    97,
+                                    108,
+                                    101
+                                ]
+                            },
+                            {
+                                "kind": "account",
+                                "path": "presale_info.authority",
+                                "account": "PresaleInfo"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "presale_vault",
+                    "writable": true,
+                    "pda": {
+                        "seeds": [
+                            {
+                                "kind": "const",
+                                "value": [
+                                    118,
+                                    97,
+                                    117,
+                                    108,
+                                    116
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "admin",
+                    "writable": true,
+                    "signer": true
+                },
+                {
+                    "name": "system_program",
+                    "address": "11111111111111111111111111111111"
+                }
+            ],
+            "args": [
+                {
+                    "name": "bump",
+                    "type": "u8"
+                }
+            ]
+        }
+    ],
+    "accounts": [
+        {
+            "name": "PresaleInfo",
+            "discriminator": [
+                11,
+                19,
+                36,
+                47,
+                79,
+                104,
+                214,
+                40
+            ]
+        },
+        {
+            "name": "UserInfo",
+            "discriminator": [
+                83,
+                134,
+                200,
+                56,
+                144,
+                56,
+                10,
+                62
+            ]
+        }
+    ],
+    "errors": [
+        {
+            "code": 6000,
+            "name": "BelowSoftcap",
+            "msg": "Amount below soft cap"
+        },
+        {
+            "code": 6001,
+            "name": "AboveHardcap",
+            "msg": "Amount above hard cap"
+        },
+        {
+            "code": 6002,
+            "name": "InvalidPrice",
+            "msg": "Invalid price"
+        },
+        {
+            "code": 6003,
+            "name": "InsufficientFunds",
+            "msg": "Insufficient funds"
+        },
+        {
+            "code": 6004,
+            "name": "PresaleNotInitialized",
+            "msg": "Presale not initialized"
+        },
+        {
+            "code": 6005,
+            "name": "PresaleNotActive",
+            "msg": "Presale not active"
+        },
+        {
+            "code": 6006,
+            "name": "PresaleEnded",
+            "msg": "Presale has ended"
+        },
+        {
+            "code": 6007,
+            "name": "InvalidPhase",
+            "msg": "Invalid phase"
+        },
+        {
+            "code": 6008,
+            "name": "PhaseNotActive",
+            "msg": "Phase not active"
+        },
+        {
+            "code": 6009,
+            "name": "InsufficientTokens",
+            "msg": "Insufficient tokens in current phase"
+        },
+        {
+            "code": 6010,
+            "name": "ExceedsMaxAmount",
+            "msg": "Exceeds maximum tokens per address"
+        },
+        {
+            "code": 6011,
+            "name": "Overflow",
+            "msg": "Arithmetic overflow"
+        },
+        {
+            "code": 6012,
+            "name": "InvalidPhaseAllocation",
+            "msg": "Invalid phase allocation"
+        },
+        {
+            "code": 6013,
+            "name": "UserAlreadyClaimed",
+            "msg": "User has already claimed the tokens"
+        },
+        {
+            "code": 6014,
+            "name": "InvalidAuthority",
+            "msg": "Invalid authority"
+        },
+        {
+            "code": 6015,
+            "name": "InvalidTokenAccount",
+            "msg": "Invalid token account"
+        },
+        {
+            "code": 6016,
+            "name": "EmptyVault",
+            "msg": "Empty vault"
+        },
+        {
+            "code": 6017,
+            "name": "InsufficientDeposit",
+            "msg": "Insufficient deposited tokens"
+        },
+        {
+            "code": 6018,
+            "name": "InvalidAmount",
+            "msg": "Invalid amount"
+        },
+        {
+            "code": 6019,
+            "name": "PresalePaused",
+            "msg": "Presale is paused"
+        },
+        {
+            "code": 6020,
+            "name": "PresaleTimeExpired",
+            "msg": "Presale time window has expired"
+        }
+    ],
+    "types": [
+        {
+            "name": "Phase",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "phase_number",
+                        "type": "u8"
+                    },
+                    {
+                        "name": "amount",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "price",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "percentage",
+                        "type": "u8"
+                    },
+                    {
+                        "name": "tokens_sold",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "tokens_available",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "status",
+                        "type": {
+                            "defined": {
+                                "name": "PhaseStatus"
+                            }
+                        }
+                    },
+                    {
+                        "name": "softcap",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "hardcap",
+                        "type": "u64"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PhaseStatus",
+            "type": {
+                "kind": "enum",
+                "variants": [
+                    {
+                        "name": "Upcoming"
+                    },
+                    {
+                        "name": "Active"
+                    },
+                    {
+                        "name": "Ended"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PresaleInfo",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "token_mint_address",
+                        "type": "pubkey"
+                    },
+                    {
+                        "name": "total_token_supply",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "remaining_tokens",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "current_phase",
+                        "type": "u8"
+                    },
+                    {
+                        "name": "phases",
+                        "type": {
+                            "array": [
+                                {
+                                    "defined": {
+                                        "name": "Phase"
+                                    }
+                                },
+                                5
+                            ]
+                        }
+                    },
+                    {
+                        "name": "total_tokens_sold",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "total_tokens_deposited",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "max_token_amount_per_address",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "authority",
+                        "type": "pubkey"
+                    },
+                    {
+                        "name": "is_initialized",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "is_active",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "is_ended",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "is_paused",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "display_end_time",
+                        "type": "i64"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "UserInfo",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "tokens_bought",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "phase_purchases",
+                        "type": {
+                            "array": [
+                                "u64",
+                                5
+                            ]
+                        }
+                    },
+                    {
+                        "name": "last_purchase_time",
+                        "type": "i64"
+                    },
+                    {
+                        "name": "phase_claims",
+                        "type": {
+                            "array": [
+                                "bool",
+                                5
+                            ]
+                        }
+                    },
+                    {
+                        "name": "wallet",
+                        "type": "pubkey"
+                    },
+                    {
+                        "name": "total_paid",
+                        "type": "u64"
+                    }
+                ]
+            }
+        }
+    ],
+    "constants": [
+        {
+            "name": "PRESALE_SEED",
+            "type": "bytes",
+            "value": "[80, 82, 69, 83, 65, 76, 69, 95, 83, 69, 69, 68]"
+        }
+    ]
+}
