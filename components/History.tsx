@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Calendar, TrendingUp, Users, Rocket } from "lucide-react";
 
 const History = () => {
@@ -32,7 +33,14 @@ const History = () => {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="relative overflow-hidden">
+      <Image
+        src="/images/moon.png"
+        alt="SolAnarch history background"
+        fill
+        className="object-cover opacity-20 md:opacity-25 pointer-events-none select-none"
+      />
+      <div className="relative space-y-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -91,6 +99,7 @@ const History = () => {
           Join us as we build the future of Solana Layer 2 technology and meme coin innovation.
         </p>
       </motion.div>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const FAQ = () => {
   const faqs = [
@@ -47,37 +48,47 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="space-y-6">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-8"
-      >
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Frequently Asked Questions
-        </h1>
-        <p className="text-gray-600 text-lg">
-          Learn more about SolAnarch&apos;s features, technology, and investment
-          opportunities.
-        </p>
-      </motion.div>
+    <div className="relative overflow-hidden">
+      {/* Soft background image */}
+      <Image
+        src="/images/faq.png"
+        alt="SolAnarch FAQ background"
+        fill
+        className="object-contain md:object-cover opacity-10 md:opacity-15 pointer-events-none select-none"
+      />
 
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <motion.div
-            key={faq.question}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:border-primary/50 transition-colors"
-          >
-            <h2 className="text-lg font-semibold text-primary mb-2">
-              {faq.question}
-            </h2>
-            <p className="text-gray-600 text-sm">{faq.answer}</p>
-          </motion.div>
-        ))}
+      <div className="relative space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-8"
+        >
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-gray-600 text-lg">
+            Learn more about SolAnarch&apos;s features, technology, and
+            investment opportunities.
+          </p>
+        </motion.div>
+
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={faq.question}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white/95 backdrop-blur-sm p-6 rounded-xl border border-gray-200 shadow-sm hover:border-primary/50 transition-colors"
+            >
+              <h2 className="text-lg font-semibold text-primary mb-2">
+                {faq.question}
+              </h2>
+              <p className="text-gray-600 text-sm">{faq.answer}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

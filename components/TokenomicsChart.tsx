@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import {
   PieChart,
   Pie,
@@ -38,8 +39,14 @@ const TokenomicsChart = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="w-full mx-auto"
+    <div className="relative overflow-hidden">
+      <Image
+        src="/images/rich.png"
+        alt="SolAnarch tokenomics background"
+        fill
+        className="object-cover opacity-20 md:opacity-25 pointer-events-none select-none"
+      />
+      <div className="relative space-y-6 w-full mx-auto"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}

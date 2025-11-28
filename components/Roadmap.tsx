@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Rocket, Code, LineChart, Shield, Globe } from "lucide-react";
 
 const Roadmap = () => {
@@ -57,7 +58,14 @@ const Roadmap = () => {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="relative overflow-hidden">
+      <Image
+        src="/images/roadmap.png"
+        alt="SolAnarch roadmap background"
+        fill
+        className="object-contain md:object-right opacity-25 pointer-events-none select-none"
+      />
+      <div className="relative space-y-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -80,9 +88,8 @@ const Roadmap = () => {
               className="mb-12"
             >
               <div
-                className={`flex items-start gap-6 flex-col sm:flex-row ${
-                  index % 2 === 0 ? "" : "sm:flex-row-reverse"
-                }`}
+                className={`flex items-start gap-6 flex-col sm:flex-row ${index % 2 === 0 ? "" : "sm:flex-row-reverse"
+                  }`}
               >
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/10 border-2 border-primary shadow-md flex items-center justify-center flex-shrink-0">
                   {phase.icon}
@@ -127,6 +134,7 @@ const Roadmap = () => {
             </motion.div>
           ))}
         </div>
+      </div>
     </div>
   );
 };

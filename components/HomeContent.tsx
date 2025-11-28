@@ -2,180 +2,118 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { DollarSign, Target, PieChart as PieChartIcon } from "lucide-react";
 
 const HomeContent = () => {
-  const stats = [
-    {
-      label: "Total to Raise",
-      value: "$11,000,000,000",
-      icon: <DollarSign className="w-5 h-5 text-primary" />,
-    },
-    {
-      label: "Total Token Supply",
-      value: "111,111,111,111 $SOLA",
-      icon: <PieChartIcon className="w-5 h-5 text-secondary" />,
-    },
-    {
-      label: "Base Cost per Token",
-      value: "$0.000099",
-      icon: <Target className="w-5 h-5 text-primary" />,
-    },
-  ];
-
-  const rounds = [
-    {
-      name: "Round 1",
-      price: "$0.000039",
-      tokens: "4,444,444,444",
-      raise: "$173,333.33",
-    },
-    {
-      name: "Round 2",
-      price: "$0.000059",
-      tokens: "11,111,111,111",
-      raise: "$1,966,666.67",
-    },
-    {
-      name: "Round 3",
-      price: "$0.000079",
-      tokens: "22,222,222,222",
-      raise: "$1,755,555.55",
-    },
-    {
-      name: "Round 4",
-      price: "$0.000199",
-      tokens: "55,256,806,253,501",
-      raise: "$3,895,555.55",
-    },
-  ];
-
   return (
-    <div className="space-y-6">
-      {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-6"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr,2fr] items-center gap-6">
-          <div className="text-center lg:text-left space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-              SOLANARCH PRESALE OVERVIEW
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600">
-              Transparent presale structure designed for fair access, clear
-              pricing, and long-term sustainability.
-            </p>
-          </div>
-          <div className="relative w-full h-40 md:h-52 lg:h-56 rounded-3xl overflow-hidden shadow-lg border border-gray-200">
+    <div className="relative overflow-hidden">
+      <div className="flex flex-col lg:flex-row items-stretch gap-6">
+        {/* Left: full-height character image */}
+        <motion.div
+          initial={{ opacity: 0, x: -80, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="relative w-full lg:w-1/2 min-h-[420px] lg:min-h-[580px]"
+        >
+          <motion.div
+            className="absolute inset-0"
+            animate={{ y: [0, -12, 0] }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+            }}
+          >
             <Image
-              src="/images/Hero.jpeg"
-              alt="SolAnarch hero artwork"
+              src="/images/hand.png"
+              alt="SolAnarch mascot"
               fill
               priority
-              className="object-cover"
+              className="object-contain object-left-bottom pointer-events-none select-none"
             />
-          </div>
-        </div>
-      </motion.div>
+          </motion.div>
+        </motion.div>
 
-      {/* Key Stats */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15 }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-4"
-      >
-        {stats.map((item) => (
-          <div
-            key={item.label}
-            className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 flex items-center gap-3"
-          >
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10">
-              {item.icon}
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-gray-500 uppercase tracking-wide">
-                {item.label}
+        {/* Right: logo + minimal token info */}
+        <motion.div
+          initial={{ opacity: 0, x: 60, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.1 }}
+          className="flex-1 flex flex-col justify-center space-y-6"
+        >
+          {/* Logo and title */}
+          <div className="flex flex-col items-center lg:items-start gap-4">
+            <motion.div
+              className="relative w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-amber-300 shadow-lg bg-white"
+              animate={{ y: [0, -6, 0] }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                repeatType: "mirror",
+                ease: "easeInOut",
+              }}
+            >
+              <Image
+                src="/images/main.png"
+                alt="SolAnarch token logo"
+                fill
+                priority
+                className="object-cover"
+              />
+            </motion.div>
+            <div className="text-center lg:text-left space-y-1">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
+                SOLANARCH
+              </h1>
+              <p className="text-base md:text-lg text-gray-600 max-w-xl">
+                The Solana L2 meme token aiming straight for the moon, built for
+                speed, low fees, and a community that never sleeps.
               </p>
-              <p className="text-lg font-semibold text-gray-900">
-                {item.value}
+            </div>
+          </div>
+
+          {/* Token info row */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 text-center">
+              <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
+                Token Name
+              </p>
+              <p className="text-xl font-semibold text-gray-900">
+                SolAnarch
+              </p>
+            </div>
+            <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 text-center">
+              <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
+                Symbol
+              </p>
+              <p className="text-xl font-semibold text-gray-900">$SOLA</p>
+            </div>
+            <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 text-center">
+              <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
+                Network
+              </p>
+              <p className="text-xl font-semibold text-gray-900">
+                Solana Layer 2
               </p>
             </div>
           </div>
-        ))}
-      </motion.div>
 
-      {/* Rounds Table */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="bg-white rounded-xl border border-gray-200 shadow-sm p-6"
-      >
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-gray-900">Presale Rounds</h2>
-          <p className="text-xs text-gray-500 max-w-sm text-right">
-            Values shown are indicative targets. Final allocations and raise
-            amounts may vary slightly based on on-chain execution and market
-            conditions.
-          </p>
-        </div>
+          {/* Small tagline strip */}
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+            <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-[11px] font-semibold text-primary">
+              BUILT ON SOLANA
+            </span>
+            <span className="px-3 py-1 rounded-full bg-secondary/10 border border-secondary/30 text-[11px] font-semibold text-secondary">
+              LAYER 2 SPEED
+            </span>
+            <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-[11px] font-semibold text-amber-700">
+              COMMUNITY POWERED
+            </span>
+          </div>
+        </motion.div>
+      </div>
 
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm text-left">
-            <thead>
-              <tr className="border-b border-gray-200 text-gray-500 uppercase text-xs">
-                <th className="py-2 pr-4">Round</th>
-                <th className="py-2 pr-4">Price / $SOLA</th>
-                <th className="py-2 pr-4">Tokens</th>
-                <th className="py-2 pr-4">Target Raise (USD)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rounds.map((round, idx) => (
-                <tr
-                  key={round.name}
-                  className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}
-                >
-                  <td className="py-2 pr-4 font-semibold text-gray-900">
-                    {round.name}
-                  </td>
-                  <td className="py-2 pr-4 text-gray-700">{round.price}</td>
-                  <td className="py-2 pr-4 text-gray-700">{round.tokens}</td>
-                  <td className="py-2 pr-4 text-gray-900 font-semibold">
-                    {round.raise}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </motion.div>
 
-      {/* Summary */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.45 }}
-        className="bg-white rounded-xl border border-gray-200 shadow-sm p-6"
-      >
-        <h3 className="text-xl font-bold text-gray-900 mb-3">
-          Why this structure?
-        </h3>
-        <p className="text-gray-600 text-sm mb-2">
-          Early rounds reward believers with the lowest entry price, while later
-          rounds help establish a strong liquidity foundation and marketing
-          budget. The goal is to balance opportunity for early adopters with
-          long-term project sustainability.
-        </p>
-        <p className="text-gray-600 text-sm">
-          Combined with Solana Layer 2 scalability and meme-driven community
-          energy, SolAnarch aims to create a token that is fun, fast, and built
-          for the long haul.
-        </p>
-      </motion.div>
     </div>
   );
 };

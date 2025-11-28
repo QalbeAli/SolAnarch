@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import SolanaWallet from "./Wallet";
 
 type NavbarProps = {
@@ -13,6 +14,7 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
     { id: "home", label: "HOME" },
     { id: "howtobuy", label: "HOW TO BUY" },
     { id: "tokenomics", label: "TOKENOMICS" },
+    { id: "presale", label: "PRESALE" },
     { id: "history", label: "HISTORY" },
     { id: "faq", label: "FAQS" },
     { id: "roadmap", label: "ROADMAP" },
@@ -25,11 +27,22 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
       <div className="flex items-center justify-between px-6 h-16">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="text-gray-900 font-bold text-xl">
-            SOLANARCH
+          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-gray-200 bg-white">
+            <Image
+              src="/images/main.png"
+              alt="SolAnarch logo"
+              fill
+              sizes="36px"
+              className="object-cover"
+            />
           </div>
-          <div className="text-gray-600 text-sm">
-            $SOLA
+          <div className="flex flex-col leading-tight">
+            <span className="text-gray-900 font-bold text-lg">
+              SOLANARCH
+            </span>
+            <span className="text-[11px] text-gray-500 tracking-wide">
+              $SOLA
+            </span>
           </div>
         </div>
 

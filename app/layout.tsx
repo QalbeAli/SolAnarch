@@ -11,6 +11,9 @@ const luckiestGuy = Luckiest_Guy({
 export const metadata: Metadata = {
   title: "SolAnarch - $SOLA",
   description: "SolAnarch is a community-driven token on the Solana blockchain.",
+  icons: {
+    icon: "/images/main.png",
+  },
 };
 
 export default function RootLayout({

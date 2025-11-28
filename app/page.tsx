@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import Roadmap from "@/components/Roadmap";
 import BlogContent from "@/components/BlogContent";
 import HeadlinesContent from "@/components/HeadlinesContent";
+import PresaleContent from "@/components/PresaleContent";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("home");
@@ -22,6 +23,8 @@ export default function Home() {
         return <HowToBuy />;
       case "tokenomics":
         return <TokenomicsChart />;
+      case "presale":
+        return <PresaleContent />;
       case "history":
         return <History />;
       case "faq":
@@ -42,9 +45,9 @@ export default function Home() {
       <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
       <div className="flex-1 flex overflow-hidden min-h-0">
         {/* Left Panel - Dynamic Content */}
-        <div 
+        <div
           className="flex-1 overflow-y-auto px-6 py-4 scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-gray-200 min-h-0"
-          style={{ 
+          style={{
             overscrollBehavior: 'contain',
             WebkitOverflowScrolling: 'touch'
           }}
@@ -53,9 +56,9 @@ export default function Home() {
         </div>
         {/* Right Panel - Fixed Presale Card */}
         <div className="w-[400px] border-l border-gray-300 bg-white flex flex-col h-full min-h-0">
-          <div 
+          <div
             className="p-4 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-gray-200"
-            style={{ 
+            style={{
               overscrollBehavior: 'contain',
               WebkitOverflowScrolling: 'touch'
             }}
